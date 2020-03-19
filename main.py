@@ -8,7 +8,7 @@ side_len = 10
 color = 'brown'
 
 def hexagon(x, y, side_len, color):
-
+    t.goto(x, y)
     t.right(30)
     for i in range(6):
         t.forward(side_len)
@@ -22,7 +22,6 @@ def hexagons_line(n, x, y, side_len, color):
         hexagon(x, y, side_len, color)
     else:
         hexagon(x, y, side_len, color)
-        t.goto(x, 0)
         hexagons_line(n - 1, x + (m.sqrt(3) * side_len), y, side_len, color)
 
 
