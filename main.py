@@ -33,18 +33,18 @@ def hexagons_tiles(n1, n, x, y, side_len, color):
         hexagons_line(n, x, y, side_len, color)
         if n1 % 2 != 0:
             t.up()
-            x_new = x - side_len
+            t.backward(((n - 1) * (1.8 * side_len)) + (side_len / 2))
+            x_new = t.xcor()
             y_new = y - side_len - (side_len / 2)
             hexagons_tiles(n1 - 1, n, x_new, y_new, side_len, color)
             t.down()
 
         else:
             t.up()
-            x_new = x - side_len
+            t.backward(((n - 1) * (1.7 * side_len)) - (side_len / 2))
+            x_new = t.xcor()
             y_new = y - side_len - (side_len / 2)
             hexagons_tiles(n1 - 1, n, x_new, y_new, side_len, color)
             t.down()
 
 hexagons_tiles(n, n, 0, 0, side_len, color)
-#x_new = x - ((n - 1) * (m.sqrt(3) * side_len)) - (side_len / 2)
-#y_new = y - side_len - (side_len / 2)
