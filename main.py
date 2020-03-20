@@ -22,7 +22,41 @@ def main():
         color_2 = input('Введите второй цвет(цифру):')
         color_2 = try_color_2(color_2)
         n = input('Введите количество шестиугольников в ряду(от 4 до 16):')
-        color = [color_1, color_2]
+        if n == 4:
+            hexagons_tiles(-490, 250, 125, 0, 1.615, 1.85)
+        elif n == 5:
+            hexagons_tiles(-400, 250, 100, 0, 1.64, 1.825)
+        elif n == 6:
+            hexagons_tiles(-450, 250, 80, 0, 1.655, 1.81)
+        elif n == 7:
+            hexagons_tiles(-400, 280, 70, 0, 1.67, 1.79)
+        elif n == 8:
+            hexagons_tiles(-450, 280, 60, 0, 1.68, 1.78)
+        elif n == 9:
+            hexagons_tiles(-385, 280, 50, 0, 1.69, 1.78)
+        elif n == 10:
+            hexagons_tiles(-400, 280, 45, 0, 1.69, 1.775)
+        elif n == 11:
+            hexagons_tiles(-385, 300, 42, 0, 1.695, 1.77)
+        elif n == 12:
+            hexagons_tiles(-415, 300, 38, 0, 1.7, 1.765)
+        elif n == 13:
+            hexagons_tiles(-385, 300, 35, 0, 1.7, 1.765)
+        elif n == 14:
+            hexagons_tiles(-405, 300, 32, 0, 1.705, 1.76)
+        elif n == 15:
+            hexagons_tiles(-380, 300, 30, 0, 1.705, 1.76)
+        elif n == 16:
+            hexagons_tiles(-410, 310, 29, 0, 1.71, 1.755)
+        elif n == 17:
+            hexagons_tiles(-390, 315, 27, 0, 1.71, 1.755)
+        elif n == 18:
+            hexagons_tiles(-405, 315, 25, 0, 1.71, 1.755)
+        elif n == 19:
+            hexagons_tiles(-390, 315, 24, 0, 1.715, 1.75)
+        elif n == 20:
+            hexagons_tiles(-405, 315, 22.5, 0, 1.715, 1.75)
+        color = [0, color_1, color_2]
         n = try_n(n)
         hexagons_tiles(n, n, 0, 0, side_len, color)
 
