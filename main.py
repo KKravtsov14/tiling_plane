@@ -4,7 +4,7 @@
 #             Mauter - 10%
 
 import turtle as t
-import turtle as m
+import math as m
 
 
 # main function, which contains a dictionary of colors, as well as calls to other functions
