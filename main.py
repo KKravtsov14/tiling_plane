@@ -1,7 +1,6 @@
 #tiling program
-#....
+#Developers: Kravtsov - 80%
 import turtle as t
-import math as m
 
 def main():
 
