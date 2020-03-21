@@ -1,31 +1,35 @@
-#tiling program
-#Developers: Kravtsov - 80%
+# tiling program
+# Developers: Kravtsov - 80%
+#             Mikhailov - 30%
+#             Mauter - 10%
+
 import turtle as t
 import turtle as m
 
-def main():
 
+# main function, which contains a dictionary of colors, as well as calls to other functions
+def main():
     colors = {2: 'red', -1: 'orange', 1: 'yellow', -3: 'green', 3: 'blue', -2: 'purple', 4: 'black', -4: 'white'}
 
     print('''
 Доступные цвета раскрашивания:
-1. Красный
-2. Оранжевый
-3. Желтый
-4. Зеленый
-5. Синий
-6. Фиолетовый
-7. Черный
-8. Белый''')
+1. red
+2. orange
+3. yellow
+4. green
+5. blue
+6. purple
+7. black
+8. white''')
 
-    color_1 = get_color_choice()
+    color_i = get_color_choice()
 
     n = int(input('Введите количество шестиугольников в ряду(от 4 до 20):'))
     if not 4 <= n <= 20:
         n = try_n(n)
 
     for i in colors:
-        if color_1 == colors[i]:
+        if color_i == colors[i]:
             color = i
 
     if n == 4:
@@ -129,14 +133,17 @@ def main():
         hexagons_tiles(n, n, -405, 315, 22.5, color, 1.715, 1.75)
         t.mainloop()
 
+
+# function checks input validation color
 def get_color_choice():
-    color_1 = input('Введите цвет:')
+    color_i = input('Введите цвет:')
     lst = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'black', 'white']
-    while color_1 not in lst:
-        color_1 = input('Некорректный ввод первого цвета. Повторите еще раз:')
-    return color_1
+    while color_i not in lst:
+        color_i = input('Некорректный ввод цвета. Повторите еще раз:')
+    return color_i
 
 
+# the function checks the check of input angles
 def try_n(n):
     lst = []
     for i in range(4, 20):
@@ -146,6 +153,7 @@ def try_n(n):
     return int(n)
 
 
+# function draws and paints a hexagon
 def draw_hexagon(x, y, side_len, color):
     colors = {2: 'red', -1: 'orange', 1: 'yellow', -3: 'green', 3: 'blue', -2: 'purple', 4: 'black', -4: 'white'}
     t.pencolor('black')
@@ -163,6 +171,7 @@ def draw_hexagon(x, y, side_len, color):
     t.up()
 
 
+# the recursive function of drawing hexagons in a row
 def hexagons_line(n, x, y, side_len, color):
     if n == 1:
         draw_hexagon(x, y, side_len, color)
@@ -173,6 +182,7 @@ def hexagons_line(n, x, y, side_len, color):
         hexagons_line(n - 1, x + (m.sqrt(3) * side_len), y, side_len, -color)
 
 
+# a recursive function that generates masonry and displays
 def hexagons_tiles(n1, n, x, y, side_len, color, coef2, coef1):
     if n1 == 1:
         hexagons_line(n, x, y, side_len, color)
@@ -193,5 +203,6 @@ def hexagons_tiles(n1, n, x, y, side_len, color, coef2, coef1):
             x_new = t.xcor()
             y_new = y - side_len - (side_len / 2)
             hexagons_tiles(n1 - 1, n, x_new, y_new, side_len, color, coef2, coef1)
+
 
 main()
